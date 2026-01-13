@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ketzaly Jabones | Natural y Orgánico</title>
+  <meta name="description" content="Ketzaly Jabones - Jabones artesanales, cosmética natural y próximamente joyería de plata." />
+
+  <!-- HTTPS friendly -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #fff6fb, #ffffff);
+      color: #444;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    header img {
+      height: 55px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #c84fa0;
+      font-weight: 500;
+    }
+
+    nav a:hover { opacity: 0.7; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 80px 40px;
+      align-items: center;
+    }
+
+    .hero h1 { font-size: 42px; color: #c84fa0; }
+
+    .hero p { margin-top: 20px; font-size: 18px; max-width: 420px; }
+
+    .buttons { margin-top: 30px; }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      margin-right: 15px;
+    }
+
+    .btn-primary { background: #c84fa0; color: white; }
+
+    .btn-outline { background: transparent; border: 2px solid #c84fa0; color: #c84fa0; }
+
+    section { padding: 70px 40px; }
+
+    section h2 { text-align: center; color: #c84fa0; font-size: 32px; margin-bottom: 40px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    footer { background: #fdeaf4; text-align: center; padding: 40px; font-size: 14px; }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+    }
+
+    .contact-form button {
+      background: #c84fa0;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      header { flex-direction: column; gap: 15px; }
+      nav a { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo-ketzaly.png" alt="Ketzaly Jabones">
+    <nav>
+      <a href="#jabones">Jabones</a>
+      <a href="#cosmetica">Cosmética</a>
+      <a href="#plata">Plata</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Jabones & Cosmética Natural</h1>
+      <p>
+        Productos artesanales elaborados con ingredientes naturales,
+        pensados para el cuidado de tu piel y bienestar.
+      </p>
+      <div class="buttons">
+        <button class="btn btn-primary" onclick="window.open('https://wa.me/525622065879','_blank')">Comprar por WhatsApp</button>
+        <button class="btn btn-outline">Conócenos</button>
+      </div>
+    </div>
+    <div>
+      <img src="hero-jabones.jpg" alt="Jabones naturales" style="width:100%; border-radius:25px;">
+    </div>
+  </div>
+
+  <section id="jabones">
+    <h2>Nuestros Productos</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Jabones Artesanales</h3>
+        <p>Hechos a mano con aceites esenciales y extractos naturales.</p>
+        <button class="btn btn-primary" onclick="window.open('https://wa.me/525622065879','_blank')">Comprar por WhatsApp</button>
+      </div>
+      <div class="card" id="cosmetica">
+        <h3>Cosmética Natural</h3>
+        <p>Cremas, bálsamos y productos libres de químicos agresivos.</p>
+        <button class="btn btn-primary" onclick="window.open('https://wa.me/525622065879','_blank')">Comprar por WhatsApp</button>
+      </div>
+      <div class="card" id="velas">
+        <h3>Velas Artesanales</h3>
+        <p>Velas aromáticas hechas a mano con esencias naturales.</p>
+        <button class="btn btn-primary" onclick="window.open('https://wa.me/525622065879','_blank')">Comprar por WhatsApp</button>
+      </div>
+      <div class="card" id="plata">
+        <h3>Plata (Próximamente)</h3>
+        <p>Pulseras, collares, anillos y dijes de plata.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍAS -->
+  <section id="galerias">
+    <h2>Galería de Productos</h2>
+
+    <h3 style="text-align:center; color:#c84fa0; margin-bottom:20px;">Jabones Artesanales</h3>
+    <div class="grid">
+      <img src="jabones1.jpg" style="width:100%; border-radius:15px;">
+      <img src="jabones2.jpg" style="width:100%; border-radius:15px;">
+      <img src="jabones3.jpg" style="width:100%; border-radius:15px;">
+    </div>
+
+    <h3 style="text-align:center; color:#c84fa0; margin:60px 0 20px;">Cosmética Natural</h3>
+    <div class="grid">
+      <img src="cosmetica1.jpg" style="width:100%; border-radius:15px;">
+      <img src="cosmetica2.jpg" style="width:100%; border-radius:15px;">
+      <img src="cosmetica3.jpg" style="width:100%; border-radius:15px;">
+    </div>
+
+    <h3 style="text-align:center; color:#c84fa0; margin:60px 0 20px;">Velas Artesanales</h3>
+    <div class="grid">
+      <img src="velas1.jpg" style="width:100%; border-radius:15px;">
+      <img src="velas2.jpg" style="width:100%; border-radius:15px;">
+      <img src="velas3.jpg" style="width:100%; border-radius:15px;">
+    </div>
+
+    <h3 style="text-align:center; color:#c84fa0; margin:60px 0 20px;">Plata</h3>
+    <div class="grid">
+      <img src="plata1.jpg" style="width:100%; border-radius:15px;">
+      <img src="plata2.jpg" style="width:100%; border-radius:15px;">
+      <img src="plata3.jpg" style="width:100%; border-radius:15px;">
+    </div>
+  </section>
+
+  <footer id="contacto">
+    <h2>Contacto</h2>
+    <form class="contact-form" action="https://formsubmit.co/jabonesketzaly@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde Ketzaly Jabones">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <textarea name="message" rows="4" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+    <p style="margin-top:20px;">📧 <a href="mailto:jabonesketzaly@gmail.com">jabonesketzaly@gmail.com</a></p>
+    <p>💬 <a href="https://wa.me/525622065879" target="_blank">+52 56 2206 5879</a></p>
+    <p style="margin-top:10px; font-size:12px;">© 2026 Ketzaly Jabones · Sitio seguro HTTPS</p>
+  </footer>
+
+  <a href="https://wa.me/525622065879" class="whatsapp-float" target="_blank">💬</a>
+
+</body>
+</html>
