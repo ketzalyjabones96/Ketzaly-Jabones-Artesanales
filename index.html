@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ketzaly Jabones | Natural y Artesanal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#2a0f25,#0b040a 70%);
+  color:#e6dbe2;
+}
+
+/* LOGO */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(10,5,10,.9);
+  padding:20px;
+  text-align:center;
+  z-index:1000;
+  backdrop-filter:blur(6px);
+  box-shadow:0 4px 18px rgba(255,95,207,.25);
+}
+header img{max-height:90px}
+
+/* NAV */
+nav{
+  text-align:center;
+  padding:12px;
+}
+nav a{
+  margin:0 15px;
+  text-decoration:none;
+  color:#ff8adf;
+  font-weight:500;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr;
+  padding:90px 50px;
+  gap:30px;
+  align-items:center;
+  text-align:center;
+}
+
+/* NEON */
+.neon{
+  color:#ff5fcf;
+  text-shadow:
+    0 0 6px #ff5fcf,
+    0 0 18px #ff5fcf,
+    0 0 40px #ff5fcf,
+    0 0 60px rgba(255,95,207,.8);
+  animation:neonPulse 2.3s infinite alternate;
+}
+@keyframes neonPulse{
+  from{opacity:.75}
+  to{opacity:1}
+}
+
+/* MUSIC PLAYER */
+.player{
+  max-width:380px;
+  margin:0 auto;
+  padding:20px;
+  border-radius:22px;
+  background:rgba(20,5,20,.85);
+  box-shadow:0 0 25px rgba(255,95,207,.4);
+}
+.player select,
+.player button,
+.player input[type=range]{
+  width:100%;
+  margin-top:10px;
+}
+.player button{
+  background:#ff5fcf;
+  border:none;
+  padding:12px;
+  border-radius:25px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section{padding:80px 50px}
+section h2,section h3{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:28px;
+}
+
+/* GALLERY */
+.gallery{
+  width:100%;
+  border-radius:22px;
+  cursor:pointer;
+  transition:.45s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,.7);
+}
+.gallery:hover{
+  transform:scale(1.12);
+  box-shadow:
+    0 0 30px #ff5fcf,
+    0 0 60px rgba(255,95,207,.8);
+}
+
+/* LIGHTBOX */
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(5,2,5,.95);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+#lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:25px;
+  box-shadow:0 0 70px #ff5fcf;
+}
+
+/* FOOTER */
+footer{
+  background:rgba(15,5,15,.95);
+  padding:60px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="Logo.jpg" alt="Logo Ketzaly Jabones">
+</header>
+
+<nav>
+  <a href="#galerias">Galería</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section class="hero">
+  <h1 class="neon">Jabones & Velas Artesanales</h1>
+  <p>Productos naturales elaborados de forma artesanal.</p>
+
+  <!-- 🎵 REPRODUCTOR DE MÚSICA -->
+  <div class="player">
+    <select id="playlist">
+      <option value="song1.mp3">Canción 1</option>
+      <option value="song2.mp3">Canción 2</option>
+      <option value="song3.mp3">Canción 3</option>
+      <option value="song4.mp3">Canción 4</option>
+      <option value="song5.mp3">Canción 5</option>
+      <option value="song6.mp3">Canción 6</option>
+    </select>
+    <button onclick="togglePlay()">▶ Play / ⏸ Pausa</button>
+    <input type="range" min="0" max="1" step="0.01" value="0.5" onchange="music.volume=this.value">
+  </div>
+</section>
+
+<section id="galerias">
+<h2 class="neon">Galería de Productos</h2>
+
+<h3 class="neon">Jabones</h3>
+<div class="grid">
+<img src="jab1.jpeg" class="gallery">
+<img src="jab2.jpeg" class="gallery">
+<img src="jab3.jpeg" class="gallery">
+<img src="jab4.jpeg" class="gallery">
+<img src="jab5.jpeg" class="gallery">
+<img src="jab6.jpeg" class="gallery">
+</div>
+
+<h3 class="neon">Velas</h3>
+<div class="grid">
+<img src="vel1.jpeg" class="gallery">
+<img src="vel2.jpeg" class="gallery">
+<img src="vel3.jpg" class="gallery">
+<img src="vel4.jpg" class="gallery">
+<img src="vel5.jpg" class="gallery">
+<img src="vel6.jpg" class="gallery">
+</div>
+
+<h3 class="neon">Plata</h3>
+<div class="grid">
+<!-- (las 35 imágenes se mantienen exactamente igual) -->
+<img src="pla1.jpeg" class="gallery">
+<img src="pla2.jpeg" class="gallery">
+<img src="pla3.jpeg" class="gallery">
+<img src="pla4.jpeg" class="gallery">
+<img src="pla5.jpeg" class="gallery">
+<img src="pla6.jpeg" class="gallery">
+<img src="pla7.jpeg" class="gallery">
+<img src="pla8.jpeg" class="gallery">
+<img src="pla9.jpeg" class="gallery">
+<img src="pla10.jpeg" class="gallery">
+<img src="pla11.jpeg" class="gallery">
+<img src="pla12.jpeg" class="gallery">
+<img src="pla13.jpeg" class="gallery">
+<img src="pla14.jpeg" class="gallery">
+<img src="pla15.jpeg" class="gallery">
+<img src="pla16.jpeg" class="gallery">
+<img src="pla17.jpeg" class="gallery">
+<img src="pla18.jpeg" class="gallery">
+<img src="pla19.jpeg" class="gallery">
+<img src="pla20.jpeg" class="gallery">
+<img src="pla21.jpeg" class="gallery">
+<img src="pla22.jpeg" class="gallery">
+<img src="pla23.jpeg" class="gallery">
+<img src="pla24.jpeg" class="gallery">
+<img src="pla25.jpeg" class="gallery">
+<img src="pla26.jpeg" class="gallery">
+<img src="pla27.jpeg" class="gallery">
+<img src="pla28.jpeg" class="gallery">
+<img src="pla29.jpeg" class="gallery">
+<img src="pla30.jpeg" class="gallery">
+<img src="pla31.jpeg" class="gallery">
+<img src="pla32.jpeg" class="gallery">
+<img src="pla33.jpeg" class="gallery">
+<img src="pla34.jpeg" class="gallery">
+<img src="pla35.jpeg" class="gallery">
+</div>
+</section>
+
+<footer id="contacto">
+  <h2 class="neon">Contacto</h2>
+  <p>📧 jabonesketzaly@gmail.com</p>
+  <p>💬 +52 56 2206 5879</p>
+</footer>
+
+<div id="lightbox"><img></div>
+
+<audio id="music"></audio>
+
+<script>
+/* LIGHTBOX */
+const lb=document.getElementById('lightbox');
+const lbImg=lb.querySelector('img');
+document.querySelectorAll('.gallery').forEach(img=>{
+  img.onclick=()=>{
+    lb.style.display='flex';
+    lbImg.src=img.src;
+  }
+});
+lb.onclick=()=>lb.style.display='none';
+
+/* MUSIC */
+const music=document.getElementById('music');
+const playlist=document.getElementById('playlist');
+music.src=playlist.value;
+music.volume=0.5;
+
+playlist.onchange=()=>{
+  music.src=playlist.value;
+  music.play();
+};
+
+function togglePlay(){
+  music.paused ? music.play() : music.pause();
+}
+</script>
+
+</body>
+</html>
