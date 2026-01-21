@@ -44,15 +44,11 @@ nav a{
 /* HERO */
 .hero{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr;
   padding:90px 50px;
-  gap:50px;
+  gap:30px;
   align-items:center;
-}
-.hero img{
-  width:100%;
-  border-radius:30px;
-  box-shadow:0 0 40px rgba(255,95,207,.3);
+  text-align:center;
 }
 
 /* NEON */
@@ -68,6 +64,30 @@ nav a{
 @keyframes neonPulse{
   from{opacity:.75}
   to{opacity:1}
+}
+
+/* MUSIC PLAYER */
+.player{
+  max-width:380px;
+  margin:0 auto;
+  padding:20px;
+  border-radius:22px;
+  background:rgba(20,5,20,.85);
+  box-shadow:0 0 25px rgba(255,95,207,.4);
+}
+.player select,
+.player button,
+.player input[type=range]{
+  width:100%;
+  margin-top:10px;
+}
+.player button{
+  background:#ff5fcf;
+  border:none;
+  padding:12px;
+  border-radius:25px;
+  font-weight:600;
+  cursor:pointer;
 }
 
 /* SECTIONS */
@@ -122,21 +142,13 @@ footer{
   padding:60px;
   text-align:center;
 }
-
-/* RESPONSIVE */
-@media(max-width:768px){
-.hero{
-  grid-template-columns:1fr;
-  text-align:center;
-}
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="Logotipo.jpg" alt="Logo Ketzaly Jabones">
+  <img src="Logo.jpg" alt="Logo Ketzaly Jabones">
 </header>
 
 <nav>
@@ -145,11 +157,22 @@ footer{
 </nav>
 
 <section class="hero">
-  <div>
-    <h1 class="neon">Jabones & Velas Artesanales</h1>
-    <p>Productos naturales elaborados de forma artesanal.</p>
+  <h1 class="neon">Jabones & Velas Artesanales</h1>
+  <p>Productos naturales elaborados de forma artesanal.</p>
+
+  <!-- 🎵 REPRODUCTOR DE MÚSICA -->
+  <div class="player">
+    <select id="playlist">
+      <option value="song1.mp3">Canción 1</option>
+      <option value="song2.mp3">Canción 2</option>
+      <option value="song3.mp3">Canción 3</option>
+      <option value="song4.mp3">Canción 4</option>
+      <option value="song5.mp3">Canción 5</option>
+      <option value="song6.mp3">Canción 6</option>
+    </select>
+    <button onclick="togglePlay()">▶ Play / ⏸ Pausa</button>
+    <input type="range" min="0" max="1" step="0.01" value="0.5" onchange="music.volume=this.value">
   </div>
-  <img src="hero.jpeg" alt="Productos Ketzaly">
 </section>
 
 <section id="galerias">
@@ -175,9 +198,9 @@ footer{
 <img src="vel6.jpg" class="gallery">
 </div>
 
-<!-- ===== PLATA (35 IMÁGENES) ===== -->
 <h3 class="neon">Plata</h3>
 <div class="grid">
+<!-- (las 35 imágenes se mantienen exactamente igual) -->
 <img src="pla1.jpeg" class="gallery">
 <img src="pla2.jpeg" class="gallery">
 <img src="pla3.jpeg" class="gallery">
@@ -222,11 +245,9 @@ footer{
   <p>💬 +52 56 2206 5879</p>
 </footer>
 
-<!-- LIGHTBOX -->
 <div id="lightbox"><img></div>
 
-<!-- MUSIC -->
-<audio id="music" autoplay></audio>
+<audio id="music"></audio>
 
 <script>
 /* LIGHTBOX */
@@ -241,28 +262,20 @@ document.querySelectorAll('.gallery').forEach(img=>{
 lb.onclick=()=>lb.style.display='none';
 
 /* MUSIC */
-const tracks=[
-'song1.mp3','song2.mp3','song3.mp3',
-'song4.mp3','song5.mp3','song6.mp3'
-];
-let t=0;
 const music=document.getElementById('music');
-music.volume=0;
-music.src=tracks[t];
-music.play();
+const playlist=document.getElementById('playlist');
+music.src=playlist.value;
+music.volume=0.5;
 
-document.addEventListener('click',()=>{
-  music.volume=0.5;
-},{once:true});
-
-music.onended=()=>{
-  t=(t+1)%tracks.length;
-  music.src=tracks[t];
+playlist.onchange=()=>{
+  music.src=playlist.value;
   music.play();
 };
+
+function togglePlay(){
+  music.paused ? music.play() : music.pause();
+}
 </script>
 
 </body>
-
 </html>
-
